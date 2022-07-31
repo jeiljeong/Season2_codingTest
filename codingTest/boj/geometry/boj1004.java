@@ -6,11 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+// runtime error 발생
+
 public class boj1004 {
-    private static final int X1 = 1;
-    private static final int Y1 = 1;
-    private static final int X2 = 1;
-    private static final int Y2 = 1;
+    private static final int START_X = 0;
+    private static final int START_Y = 1;
+    private static final int END_X = 2;
+    private static final int END_Y = 3;
+
+    private static final int planetX = 0;
+    private static final int planetY = 1;
+    private static final int planetR = 2;
     public static void main(String[] args) throws Exception {
         // 1. 입력값 검증
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -37,8 +43,32 @@ public class boj1004 {
             // _printTest(testCase, point, n, planetList);
             
             // 2. 비즈니스 로직
-            
+            // 출발점 좌표와 도착점 좌표를 포함하고 있는지 Count
+            int answer = 0;
+            for (int j = 0; j < n; j++) {
+                boolean isIncludedStart = false;
+                boolean isIncludedEnd = false;
+
+                // 출발점 좌표가 행성의 안에 있으면 true
+                if (Math.pow(point.get(START_X) - planetList[j][planetX], 2)
+                    + Math.pow(point.get(START_Y) - planetList[j][planetY] , 2)
+                    < Math.pow(planetList[j][planetR], 2)) {
+                    isIncludedStart = true;
+                }
+                
+                // 도착점 좌표가 행성의 안에 있으면 true
+                if (Math.pow(point.get(END_X) - planetList[j][planetX], 2)
+                    + Math.pow(point.get(END_Y) - planetList[j][planetY] , 2)
+                    < Math.pow(planetList[j][planetR], 2)) {
+                    isIncludedEnd = true;
+                }
+
+                // 출발점, 도착점이 모두 true인 경우는, 이동할 필요가 없으니 answer는 0이 됨 
+                if (isIncludedStart != isIncludedEnd) answer++;
+            }
+
             // 3. 출력
+            System.out.println(answer);
         }
 
         // 4. 종료

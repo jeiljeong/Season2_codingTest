@@ -1,7 +1,6 @@
 package codingTest.boj.geometry;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ public class boj2477_v2 {
     private static final int REVERSE_R_SHAPE = 2;
     private static final int L_SHAPE = 3;
     private static final int REVERSE_L_SHAPE = 4;
-    public static void main(String[] args) throws NumberFormatException, IOException {
+    public static void main(String[] args) throws Exception {
         // 1. 입력값 검증
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -36,16 +35,9 @@ public class boj2477_v2 {
 
         // 2. 비즈니스 로직
         int shape = _shapeOf(direction);
-
-        try {
-            chamwae = _numOfchamwae(shape, chamwae, direction, distance);
-        } catch (Exception e) {
-            e.getStackTrace();
-        } finally {
-            // 3. 종료
-            System.out.println(chamwae);
-        }
-
+        
+        // 3. 종료
+        System.out.println(_numOfchamwae(shape, chamwae, direction, distance));
     }
 
     private static int _shapeOf(List<Integer> direction) {
@@ -99,92 +91,52 @@ public class boj2477_v2 {
             for (int i = 0; i < 6; i++) {
                 // 세로막대 : (남) * 동
                 if (direction.get(i) == SOUTH) {
-                    if (i == 5){
-                        verticalBar = distance.get(i) * distance.get(0);
-                        overlapEdge1 = distance.get(0);
-                    } else {
-                        verticalBar = distance.get(i) * distance.get(i + 1);
-                        overlapEdge1 = distance.get(i + 1);
-                    }
+                    verticalBar = distance.get(_cyclicIndex(i)) * distance.get(_cyclicIndex(i + 1));
+                    overlapEdge1 = distance.get(_cyclicIndex(i + 1));
                 }
                 // 가로막대 : 북 * (서)
                 else if (direction.get(i) == WEST) {
-                    if (i == 0) {
-                        widthBar = distance.get(5) * distance.get(i);
-                        overlapEdge2 = distance.get(5);
-                    } else {
-                        widthBar = distance.get(i - 1) * distance.get(i);
-                        overlapEdge2 = distance.get(i - 1);
-                    }
+                    widthBar = distance.get(_cyclicIndex(i - 1)) * distance.get(_cyclicIndex(i));
+                    overlapEdge2 = distance.get(_cyclicIndex(i - 1));
                 }
             }
         } else if (shape == REVERSE_R_SHAPE) {
             for (int i = 0; i < 6; i++) {
                 // 세로막대 : 동 * (북)
                 if (direction.get(i) == NORTH) {
-                    if (i == 0) {
-                        verticalBar = distance.get(5) * distance.get(i);
-                        overlapEdge1 = distance.get(5);
-                    } else {
-                        verticalBar = distance.get(i - 1) * distance.get(i);
-                        overlapEdge1 = distance.get(i - 1);
-                    }
+                    verticalBar = distance.get(_cyclicIndex(i - 1)) * distance.get(_cyclicIndex(i));
+                    overlapEdge1 = distance.get(_cyclicIndex(i - 1));
                 }
                 // 가로막대 : (서) * 남
                 else if (direction.get(i) == WEST){
-                    if (i == 5) {
-                        widthBar = distance.get(i) * distance.get(0);
-                        overlapEdge2 = distance.get(0);
-                    } else {
-                        widthBar = distance.get(i) * distance.get(i + 1);
-                        overlapEdge2 = distance.get(i + 1);
-                    }
+                    widthBar = distance.get(_cyclicIndex(i)) * distance.get(_cyclicIndex(i + 1));
+                    overlapEdge2 = distance.get(_cyclicIndex(i + 1));
                 }
             }
         } else if (shape == L_SHAPE) {
             // 세로막대 : 서 * (남)
             for (int i = 0; i < 6; i++) {
                 if (direction.get(i) == SOUTH) {
-                    if (i == 0) {
-                        verticalBar = distance.get(5) * distance.get(i);
-                        overlapEdge1 = distance.get(5);
-                    } else {
-                        verticalBar = distance.get(i - 1) * distance.get(i);
-                        overlapEdge1 = distance.get(i - 1);
-                    }
+                    verticalBar = distance.get(_cyclicIndex(i - 1)) * distance.get(_cyclicIndex(i));
+                    overlapEdge1 = distance.get(_cyclicIndex(i - 1));
                 }
                 // 가로막대 : (동) * 북
                 else if (direction.get(i) == EAST) {
-                    if (i == 5) {
-                        widthBar = distance.get(i) * distance.get(0);
-                        overlapEdge2 = distance.get(0);
-                    } else {
-                        widthBar = distance.get(i) * distance.get(i + 1);
-                        overlapEdge2 = distance.get(i + 1);
-                    }
+                    widthBar = distance.get(_cyclicIndex(i)) * distance.get(_cyclicIndex(i + 1));
+                    overlapEdge2 = distance.get(_cyclicIndex(i + 1));
                 }
             }
         } else if (shape == REVERSE_L_SHAPE) {
             for (int i = 0; i < 6; i++) {
                 // 세로막대 : (북) * 서
                 if (direction.get(i) == NORTH) {
-                    if (i == 5) {
-                        verticalBar = distance.get(i) * distance.get(0);
-                        overlapEdge1 = distance.get(0);
-                    } else {
-                        verticalBar = distance.get(i) * distance.get(i + 1);
-                        overlapEdge1 = distance.get(i + 1);
-                    }
+                    verticalBar = distance.get(_cyclicIndex(i)) * distance.get(_cyclicIndex(i + 1));
+                    overlapEdge1 = distance.get(_cyclicIndex(i + 1));
                 }
                 // 가로막대 : 남 * (동)
                 else if (direction.get(i) == EAST) {
-                    if (i == 0) {
-                        widthBar = distance.get(5) * distance.get(i);
-                        overlapEdge2 = distance.get(5);
-                    } else {
-                        widthBar = distance.get(i - 1) * distance.get(i);
-                        overlapEdge2 = distance.get(i - 1);
-                    }
+                    widthBar = distance.get(_cyclicIndex(i - 1)) * distance.get(_cyclicIndex(i));
+                    overlapEdge2 = distance.get(_cyclicIndex(i - 1));
                 }
             }
         }
@@ -192,5 +144,13 @@ public class boj2477_v2 {
         result = chamwae * (widthBar + verticalBar - overlapArea);
         
         return result;
+    }
+
+    private static int _cyclicIndex(int index) {
+        if (index == 6)
+            return 0;
+        else if (index == -1)
+            return 5;
+        return index;
     }
 }

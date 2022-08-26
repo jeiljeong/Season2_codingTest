@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 /**
  * This version uses the dynamic programming & Pascal's triangle,
  * But there is another version using factiorial and Fermat's little theorem.
+ * cf. https://st-lab.tistory.com/162
  */
 public class boj11051_v3 {
     private static int[][] dp;

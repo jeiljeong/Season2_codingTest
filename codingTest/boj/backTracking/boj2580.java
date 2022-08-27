@@ -22,9 +22,7 @@ public class boj2580 {
         // 2. Biz logic
         sudoku(0, 0);
         
-        
         // 3. End
-        mapPrinter();
     }
 
     private static void sudoku(int row, int col) {

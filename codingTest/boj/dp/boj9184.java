@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ * Caution : StringTokenizer should be split by " " explicitly, if not, then compiler can make Number Format Runtime Error.
+ * cf. https://st-lab.tistory.com/190
+ */
 public class boj9184 {
     private static int[][][] store = new int[21][21][21];
     private static StringBuilder sb = new StringBuilder();
@@ -14,7 +18,7 @@ public class boj9184 {
 
         StringTokenizer st = null;
         while (true) {
-            st = new StringTokenizer(br.readLine());
+            st = new StringTokenizer(br.readLine(), " ");
             
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());

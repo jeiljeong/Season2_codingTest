@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class boj24414 {
+/**
+ * cf. https://st-lab.tistory.com/190
+ */
+public class boj24416 {
     private static int[] fibStore;
     private static int repeat1 = 1;
     private static int repeat2 = 0;

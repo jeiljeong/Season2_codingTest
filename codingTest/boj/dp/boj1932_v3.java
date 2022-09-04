@@ -5,6 +5,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ * Point
+ * 1) dynamic programming can be succeed by using memorization
+ *    - Thus, usally the solving way is related with static field.
+ * 2) backTracking is related with recursion & checking condition
+ *    - Thus, the backTracking combined with the dynamic programming looks like when the condition is enough, then return memorized value
+ *    - Furthermore, the check of visiting is processed by memorization section has the init value of backTracking
+ *    - So, the backTracking with the recursion has
+ *      a. depth condition
+ *      b. is visited condition with init value
+ *      c. if the memorized value exists, then return it
+ *      d. or not, then calcuate some of the operations and reserve the result value
+ * 3) The backTracking seems like the bruteforce, but the bruteforce doesn't have any exit condition
+ * 4) The backTracking is implemented by the recursion or the iteration related to dfs, bfs
+ *    - The recursion is the way of depth down and the way of top-down
+ *    - The iteration is the way of accumulation and the way of bottom-up
+ * 5) Additionally, be careful with some of the tricky conditions like int overflow, underflow
+ */
 public class boj1932_v3 {
     private static int[][] triangle;
     private static int[][] dp;

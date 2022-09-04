@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ * cf. https://st-lab.tistory.com/128
+ */
 public class boj1149_v2 {
     private final static int RED = 0;
     private final static int GREEN = 1;

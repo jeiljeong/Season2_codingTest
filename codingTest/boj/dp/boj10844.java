@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * 초기 풀이 시 DP 사용 위치를 잡지 못해 블로그를 참조함
+ * 
  * DP를 사용하는 곳에서 포인트를 잡지 못했으나
  * N번째 자리수에서 value 8이 나올 때를 가정하면, dp[n][8]에는 피호출자에서 반환한 누적값이 들어가 있으며,
  * n + 1번째 자리수에서 value 7과 9에서 n번째 자리수 value 8을 호출할 수 있는데

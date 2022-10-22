@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch boj11053_iter",
+            "request": "launch",
+            "mainClass": "boj11053_iter",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj11053",
+            "request": "launch",
+            "mainClass": "boj11053",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
             "name": "Launch boj2156_answer",
             "request": "launch",
             "mainClass": "boj2156_answer",

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch boj11054",
+            "request": "launch",
+            "mainClass": "boj11054",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
             "name": "Launch boj11053_iter",
             "request": "launch",
             "mainClass": "boj11053_iter",

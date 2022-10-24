@@ -22,10 +22,10 @@ public class boj9251 {
         dp = new Integer[str1.length][str2.length];
 
         // 2. Biz logic
-        lcs(str1.length - 1, str2.length - 1);
+        int result = lcs(str1.length - 1, str2.length - 1);
         
         // 3. End
-        
+        System.out.println(result);
     }
     
     private static int lcs(int x, int y) {

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class boj11659 {
+public class boj11659_v2 {
     private static int[] nums;
     public static void main(String[] args) throws IOException {
         // 1. Check input validation & initialization

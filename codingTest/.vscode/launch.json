@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch boj1874",
+            "request": "launch",
+            "mainClass": "boj1874",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj4949",
+            "request": "launch",
+            "mainClass": "boj4949",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj9012",
+            "request": "launch",
+            "mainClass": "boj9012",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj10773",
+            "request": "launch",
+            "mainClass": "boj10773",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj10828",
+            "request": "launch",
+            "mainClass": "boj10828",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
             "name": "Launch boj12865",
             "request": "launch",
             "mainClass": "boj12865",

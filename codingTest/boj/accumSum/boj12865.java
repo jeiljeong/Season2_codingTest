@@ -16,7 +16,9 @@ public class boj12865 {
         int k = Integer.parseInt(st.nextToken());
 
         num = new int[n + 1];
-        dp = new Integer[n - k + 2];
+        
+        int dp_size = n - k + 1;
+        dp = new Integer[dp_size + 1];
         dp[0] = 0;
         dp[1] = 0;
         
@@ -30,14 +32,13 @@ public class boj12865 {
         for (int i = 1; i <= k; i++) {
             dp[1] += num[i];
         }
-        System.out.println(dp[1]);
-        for (int i = 2; i <= k; i++) {
+        for (int i = 2; i <= dp_size; i++) {
             dp[i] = dp[i - 1] + num[i + k - 1] - num[i - 1];
         }        
         
         // 3. End
         int max = Integer.MIN_VALUE;
-        for (int i = 1; i <= k; i++) {
+        for (int i = 1; i <= dp_size; i++) {
             max = Math.max(max, dp[i]);
         }
         System.out.println(max);

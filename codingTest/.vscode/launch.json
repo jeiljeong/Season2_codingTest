@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch boj11286",
+            "request": "launch",
+            "mainClass": "boj11286",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj2164",
+            "request": "launch",
+            "mainClass": "boj2164",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
+            "name": "Launch boj18258",
+            "request": "launch",
+            "mainClass": "boj18258",
+            "projectName": "codingTest_f695be94"
+        },
+        {
+            "type": "java",
             "name": "Launch boj1874",
             "request": "launch",
             "mainClass": "boj1874",
